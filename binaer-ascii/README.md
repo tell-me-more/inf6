@@ -33,29 +33,6 @@ Diese App unterstützt Lehrende dabei, Schülerinnen und Schülern die Konzepte 
 - **Console-API** für erweiterte Nutzung durch Lehrende
 - **Animationen** bei Wertänderungen für bessere Sichtbarkeit
 
-## 🚀 Installation und Nutzung
-
-### GitHub Pages Deployment
-
-1. **Repository klonen oder herunterladen**
-   ```bash
-   git clone https://github.com/HansTydecks/binary-ascii-visualizer.git
-   ```
-
-2. **GitHub Pages aktivieren**
-   - Gehen Sie zu den Repository-Einstellungen auf GitHub
-   - Scrollen Sie zu "Pages" 
-   - Wählen Sie "Deploy from a branch"
-   - Wählen Sie "main" branch und "/ (root)"
-   - Klicken Sie auf "Save"
-
-3. **App aufrufen**
-   - Die App ist dann verfügbar unter: `https://hanstydecks.github.io/binary-ascii-visualizer/`
-
-### Lokale Nutzung
-
-Öffnen Sie einfach die `index.html` Datei in einem modernen Webbrowser. Keine weiteren Installationen erforderlich.
-
 ## 📚 Pädagogischer Einsatz
 
 ### Unterrichtsphase 3: Transistor/Schalter-Demonstration
@@ -200,17 +177,3 @@ binary-ascii-visualizer/
 ## 📄 Lizenz
 
 Dieses Projekt steht unter der MIT-Lizenz und kann frei für Bildungszwecke verwendet und angepasst werden.
-
-## 🤝 Beitragen
-
-Verbesserungsvorschläge und Erweiterungen sind willkommen! Erstellen Sie gerne Issues oder Pull Requests.
-
-## 📞 Support
-
-Bei Fragen oder Problemen wenden Sie sich an:
-- GitHub Issues: [Repository Issues](https://github.com/HansTydecks/binary-ascii-visualizer/issues)
-- Entwickler: [@HansTydecks](https://github.com/HansTydecks)
-
----
-
-**Entwickelt für den Informatikunterricht - Von Lehrenden für Lehrende** 🎓
