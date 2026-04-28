@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software-Schichten</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Software-Schichten</h1>
+            <p>Entdecke, wie Betriebssystem, Treiber und Anwendersoftware zusammenarbeiten</p>
+            <button class="glossary-btn" id="open-glossary">📖 Glossar - Wichtige Begriffe</button>
+        </header>
+
+        <div class="main-content">
+            <!-- Interaktives Schichtenmodell -->
+            <section class="card layer-model-card">
+                <h2>Das Schichtenmodell</h2>
+                <p class="card-intro">Klicke auf eine Schicht, um mehr darüber zu erfahren!</p>
+                <div class="layer-model" id="layer-model">
+                    <div class="layer" data-layer="app" tabindex="0">
+                        <div class="layer-icon">📱</div>
+                        <div class="layer-label">Anwendersoftware</div>
+                        <div class="layer-examples">Word, Browser, Spiele, Spotify …</div>
+                    </div>
+                    <div class="layer-arrow">⬆ nutzt ⬇</div>
+                    <div class="layer" data-layer="os" tabindex="0">
+                        <div class="layer-icon">⚙️</div>
+                        <div class="layer-label">Betriebssystem</div>
+                        <div class="layer-examples">Windows, macOS, Linux, Android …</div>
+                    </div>
+                    <div class="layer-arrow">⬆ nutzt ⬇</div>
+                    <div class="layer" data-layer="driver" tabindex="0">
+                        <div class="layer-icon">🔧</div>
+                        <div class="layer-label">Treiber</div>
+                        <div class="layer-examples">Druckertreiber, Grafiktreiber …</div>
+                    </div>
+                    <div class="layer-arrow">⬆ nutzt ⬇</div>
+                    <div class="layer" data-layer="hardware" tabindex="0">
+                        <div class="layer-icon">🖥️</div>
+                        <div class="layer-label">Hardware</div>
+                        <div class="layer-examples">Prozessor, Festplatte, Drucker …</div>
+                    </div>
+                </div>
+                <!-- Detailansicht bei Klick auf eine Schicht -->
+                <div class="layer-detail" id="layer-detail" style="display:none;">
+                    <div class="layer-detail-header">
+                        <span class="layer-detail-icon" id="detail-icon"></span>
+                        <h3 id="detail-title"></h3>
+                        <button class="close-btn" id="close-detail">&times;</button>
+                    </div>
+                    <div class="layer-detail-body">
+                        <p id="detail-description"></p>
+                        <div class="detail-examples-list">
+                            <strong>Beispiele:</strong>
+                            <ul id="detail-examples"></ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Szenarien-Karte: Kommunikationsweg -->
+            <section class="card scenario-card">
+                <h2>Wie arbeiten die Schichten zusammen?</h2>
+                <p class="card-intro">Wenn du z.&nbsp;B. in Word auf „Drucken" klickst, durchläuft der Befehl alle Schichten – von oben nach unten.</p>
+                <div class="scenario-visual" id="scenario-visual">
+                    <div class="scenario-step" data-step="app">
+                        <span class="scenario-num">1</span>
+                        <span>📱 <strong>Anwendersoftware</strong> — Du klickst „Drucken" in Word</span>
+                    </div>
+                    <div class="scenario-arrow-down">▼</div>
+                    <div class="scenario-step" data-step="os">
+                        <span class="scenario-num">2</span>
+                        <span>⚙️ <strong>Betriebssystem</strong> — Windows leitet den Druckauftrag weiter</span>
+                    </div>
+                    <div class="scenario-arrow-down">▼</div>
+                    <div class="scenario-step" data-step="driver">
+                        <span class="scenario-num">3</span>
+                        <span>🔧 <strong>Treiber</strong> — Der Druckertreiber übersetzt den Auftrag</span>
+                    </div>
+                    <div class="scenario-arrow-down">▼</div>
+                    <div class="scenario-step" data-step="hardware">
+                        <span class="scenario-num">4</span>
+                        <span>🖥️ <strong>Hardware</strong> — Der Drucker druckt das Dokument</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- ==============================
+         INTERAKTIVER ERKUNDUNGSBEREICH
+         ============================== -->
+    <section class="exploration-section">
+        <div class="exploration-container">
+            <div class="exploration-header">
+                <div class="byte-mascot">
+                    <img src="Byte_mascot/Byte_Thinking.png" alt="Byte denkt nach">
+                </div>
+                <div>
+                    <h2>🔎 Erkundungsbereich</h2>
+                    <p class="exploration-subtitle">Verschaffe dir zuerst einen Überblick über das Thema, bevor du die Missionen startest!</p>
+                </div>
+            </div>
+
+            <!-- === Lernkarten === -->
+            <div class="explore-block">
+                <h3>🃏 Lernkarten - Klicke zum Umdrehen!</h3>
+                <div class="flipcard-grid" id="flipcard-grid"></div>
+            </div>
+
+            <!-- === Szenarien-Werkstatt === -->
+            <div class="explore-block">
+                <h3>🛤️ Was passiert eigentlich…?</h3>
+                <p class="explore-intro">Wähle einen Anwendungsfall aus und klicke dich Schritt für Schritt durch den Kommunikationsweg der Schichten.</p>
+                <div class="scenario-selector" id="scenario-selector"></div>
+                <div class="scenario-walkthrough" id="scenario-walkthrough"></div>
+            </div>
+
+            <!-- === Vergleichstabelle === -->
+            <div class="explore-block">
+                <h3>📊 Vergleichstabelle - Finde die Unterschiede!</h3>
+                <p class="explore-intro">Fülle die Tabelle aus, indem du für jede Zelle die richtige Antwort wählst.</p>
+                <div class="compare-table-wrapper" id="compare-table-wrapper"></div>
+                <button class="compare-check-btn" id="compare-check-btn">✔ Tabelle prüfen</button>
+                <div class="compare-feedback" id="compare-feedback"></div>
+            </div>
+
+            <!-- === Von-Neumann-Rechnermodell === -->
+            <div class="explore-block">
+                <h3>🖥️ Von-Neumann-Rechnermodell - So ist ein Computer aufgebaut</h3>
+                <p class="explore-intro">Klicke auf die einzelnen Komponenten im Modell, um mehr über ihren Aufbau und ihre Aufgabe zu erfahren.</p>
+                <div id="von-neumann-diagram"></div>
+            </div>
+
+            <!-- === Schnittstellen-Zuordnung === -->
+            <div class="explore-block">
+                <h3>🔌 Schnittstellen erkennen - Ordne zu!</h3>
+                <p class="explore-intro">Ziehe den richtigen Begriff auf das passende Bild der PC-Schnittstelle. Erkennst du alle 10 Anschlüsse?</p>
+                <div id="port-quiz-area"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission System -->
+    <section class="mission-section">
+        <div class="mission-container">
+            <div class="mission-header">
+                <div class="byte-mascot" id="mission-byte-mascot">
+                    <img src="Byte_mascot/Byte_normal.png" alt="Byte Maskottchen">
+                </div>
+                <h2>Missionen</h2>
+            </div>
+            <div class="mission-content">
+                <div class="mission-text" id="mission-content">
+                    Lade die Anwendung…
+                </div>
+                <!-- Dynamischer Übungsbereich -->
+                <div class="exercise-area" id="exercise-area"></div>
+                <div class="mission-progress">
+                    <span id="mission-counter">1 / 8</span>
+                </div>
+            </div>
+            <div class="mission-navigation">
+                <div class="mission-buttons" id="mission-buttons"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="impressum">
+            <p>
+                © Dominik Bechinie | Martin-Andersen-Nexö-Gymnasium Dresden | 2026
+            </p>
+        </div>
+    </footer>
+
+    <!-- Mission Success Modal -->
+    <div class="modal-overlay" id="mission-modal">
+        <div class="modal-content mission-modal">
+            <div class="mission-success">
+                <div class="modal-header-with-byte">
+                    <div class="byte-mascot celebrating" id="mission-success-byte">
+                        <img src="Byte_mascot/Byte_Happy.png" alt="Byte freut sich!">
+                    </div>
+                    <h3>🎉 Mission erfüllt!</h3>
+                </div>
+                <div class="mission-result" id="mission-result"></div>
+                <div class="mission-timer" id="mission-timer" style="display: none;">
+                    <div class="timer-bar">
+                        <div class="timer-progress" id="timer-progress"></div>
+                    </div>
+                </div>
+                <button class="continue-btn" id="continue-mission" style="display: none;">Weiter</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Glossar Modal -->
+    <div class="modal-overlay" id="glossary-modal">
+        <div class="modal-content glossary-modal-content">
+            <div class="modal-header">
+                <h3>📖 Glossar - Wichtige Begriffe</h3>
+                <button class="close-btn" id="close-glossary">&times;</button>
+            </div>
+            <div class="glossary-list" id="glossary-list"></div>
+        </div>
+    </div>
+
+    <!-- Glossar Popup (für Inline-Klick auf Begriffe) -->
+    <div class="glossary-popup" id="glossary-popup" style="display:none;">
+        <div class="glossary-popup-header">
+            <span class="glossary-popup-term" id="popup-term"></span>
+            <button class="close-btn close-popup" id="close-popup">&times;</button>
+        </div>
+        <p class="glossary-popup-def" id="popup-definition"></p>
+        <p class="glossary-popup-example" id="popup-example"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
